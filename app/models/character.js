@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
-const exampleSchema = new mongoose.Schema({
-  title: {
+const characterSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true
   },
-  text: {
+  class: {
     type: String,
     required: true
   },
@@ -18,4 +18,4 @@ const exampleSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Example', exampleSchema)
+module.exports = mongoose.model('Character', characterSchema)
