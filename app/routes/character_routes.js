@@ -30,7 +30,8 @@ const router = express.Router()
 // INDEX
 // GET /characters
 router.get('/characters', requireToken, (req, res, next) => {
-  Character.find()
+  // Only show characters created by the currently signed-in user
+  Character.find({ owner: req.user._id })
     // respond with status 200 and JSON of the characters
     .then(characters => res.status(200).json({ characters: characters }))
     // if an error occurs, pass it to the handler
